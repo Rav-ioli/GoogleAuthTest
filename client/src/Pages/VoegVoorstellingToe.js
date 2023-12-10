@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { Link, NavLink } from "react-router-dom";
-import './VoegVoorstellingToe.css'
+import '../Styles/VoegVoorstellingToe.css';
 
-export function VoorstellingAdding() {
+
+const VoorstellingAdding= ()=> {
     const [voorstellingNaam, setVoorstelllingNaam] = useState("");
     const [zaalnummer, setZaalnummer] = useState(0);
     const [datumTijd, setDatumTijd] = useState("");
@@ -17,45 +18,92 @@ export function VoorstellingAdding() {
     const [invalidErrorPrijs, setInvalidErrorPrijs] = useState(false);
     const [invalidErrorZaal2, setInvalidErrorZaal2] = useState(false);
 
-    async function submitHandler(e) {
-        e.preventDefault();
-        if (voorstellingNaam.length === 0 || zaalnummer === 0 || prijs === 0 || artiest === 0 || datumTijd.length === 0 || tijdsduur.length === 0
-            || tijdsduur.length !== 5 || datumTijd.length !== 10) {
-            setError(true);
-        }
-        else if (isNaN(zaalnummer) || isNaN(prijs)) {
-            await fetchZaalData();
-            setInvalidErrorZaal(true);
-            setInvalidErrorPrijs(true);
-            zaalData.forEach(zaal => {
-                if (zaal.id !== zaalnummer) {
-                    setInvalidErrorZaal2(true);
-                }
-            })
+        async function submitHandler(e) {
+             e.preventDefault();
+
+        //     if (voorstellingNaam.length === 0 || zaalnummer === 0 || prijs === 0 || artiest === 0 || datumTijd.length === 0 || tijdsduur.length === 0
+        //         || tijdsduur.length !== 5 || datumTijd.length !== 10) {
+        //         setError(true);
+        //     }
+        //     else if (isNaN(zaalnummer) || isNaN(prijs)) {
+        //         await fetchZaalData();
+        //         setInvalidErrorZaal(true);
+        //         setInvalidErrorPrijs(true);
+        //         zaalData.forEach(zaal => {
+        //             if (zaal.id !== zaalnummer) {
+        //                 setInvalidErrorZaal2(true);
+        //             }
+        //         })
+        //     } else {
+
+
+    console.log(voorstellingNaam, genre);
+    
+    //fetch aanmaken en de url meegeven body namen moet zelfde zijn als in de backend
+   var result = await fetch("https://localhost:7225/api/User/RegisterUser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") },
+        body: JSON.stringify({
+            username: voorstellingNaam,
+            email: voorstellingNaam,
+            password: genre,
+        }), 
+    }).then(response => {
+        if (response.status === 405) {
+            alert("This server does not support the POST method for the specified endpoint.");
         } else {
-            fetch("api/voorstelling/nieuweVoorstelling", {
-                method: "POST",
-                headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") },
-                body: JSON.stringify({
-                    Naam: voorstellingNaam,
-                    Zaal: zaalnummer,
-                    img: "image",
-                    Prijs: prijs,
-                    Genre: genre,
-                    Tijd: tijdsduur,
-                    datum: datumTijd,
-                    Artiest: artiest,
-                    Speelduur: 120,
-                })
-            }).then(response => {
-                if (response.status === 405) {
-                    alert("This server does not support the POST method for the specified endpoint.");
-                } else {
-                    response.ok ? alert("voorstelling toegevoegd") : alert("poging mislukt")
-                }
-            })
+            
+            response.ok ? alert("voorstelling toegevoegd") : alert("poging mislukt")
         }
+        console.log(response.status);
+    })
+
+
+
+
+//    const result = await fetch("https://localhost:7225/api/User/GetUser");
+
+//    if (result.ok) {
+//        const data = await result.json();
+//        console.log(data);
+//    } else {
+//        console.error(`Error: ${result.status}`);
+//    }
+
+
+// var a = await fetch("https://localhost:7225/api/User/ReegisterUser",{ method: 'POST' })
+// console.log(a);
+
+// var result = await fetch("/api/User/RegisterUser", {
+//     //         method: "POST",
+//     //         headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") },
+
+
     }
+
+    //         fetch("api/voorstelling/nieuweVoorstelling", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") },
+    //             body: JSON.stringify({
+    //                 Naam: voorstellingNaam,
+    //                 Zaal: zaalnummer,
+    //                 img: "image",
+    //                 Prijs: prijs,
+    //                 Genre: genre,
+    //                 Tijd: tijdsduur,
+    //                 datum: datumTijd,
+    //                 Artiest: artiest,
+    //                 Speelduur: 120,
+    //             })
+    //         }).then(response => {
+    //             if (response.status === 405) {
+    //                 alert("This server does not support the POST method for the specified endpoint.");
+    //             } else {
+    //                 response.ok ? alert("voorstelling toegevoegd") : alert("poging mislukt")
+    //             }
+    //         })
+    //     }
+    
 
     async function fetchZaalData() {
         try {
@@ -69,7 +117,7 @@ export function VoorstellingAdding() {
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <form>
             <div className="container" id="container">
                 <h1>Voeg Een Voorstelling Toe</h1>
                 <div className="row">
@@ -107,7 +155,7 @@ export function VoorstellingAdding() {
                                 <div className="button-artiest-div"><label className="voeg-artiest-toe-indicator">Nieuwe artiest: </label> <NavLink tag={Link} className="text-dark" to="/AddArtiest">
                                     <button className="btn-Artiest-Add">&#43; artiest</button>
                                 </NavLink></div>
-                                <div className="button-save-div"><button className="btn-Save" type="submit">Save</button></div>
+                                <div className="button-save-div"><button className="btn-Save" onClick={submitHandler}>Saave</button></div>
                             </div>
                         </div>
                     </div>

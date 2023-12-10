@@ -1,5 +1,6 @@
 import Home from './Pages/Home'
 import GoogleLogin from './Pages/GoogleLogin'
+import VoegVoorstellingToe from './Pages/VoegVoorstellingToe'
 
 const AppRoutes = [
   {
@@ -9,6 +10,8 @@ const AppRoutes = [
   {
     path: "/Login",
     element: <GoogleLogin />,
+    path: "/Voorstellingen",
+    element: <VoegVoorstellingToe />,
   },
 ];
 
