@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { jwtDecode } from "jwt-decode";
 import { Link, NavLink } from "react-router-dom";
 import '../Styles/VoegVoorstellingToe.css';
 import FetchData from "../DataFetcher";
@@ -39,71 +40,42 @@ const VoorstellingAdding= ()=> {
 
     console.log(voorstellingNaam, genre);
     //fetch aanmaken en de url meegeven body namen moet zelfde zijn als in de backend
-   var result = await fetch("https://localhost:7225/api/User/RegisterUser", {
+   await fetch("https://localhost:7225/api/User/login", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") },
         body: JSON.stringify({
-            username: voorstellingNaam,
             email: voorstellingNaam,
             password: genre,
         }), 
-    }).then(response => {
+    }).then(async (response) => {
         if (response.status === 405) {
             alert("This server does not support the POST method for the specified endpoint.");
         } else {
-            
-            response.ok ? alert("voorstelling toegevoegd") : alert("poging mislukt")
+            if (response.ok) {
+              //  alert("voorstelling toegevoegd");
+                const result = await response.json();
+                if (result.content) {
+                    handleCallbackResponse(result);
+                } else {
+                    console.log('Unexpected format of response:', result);
+                }
+            } else {
+                alert("poging mislukt");
+            }
         }
         console.log(response.status);
     })
 
-
-
-
-//    const result = await fetch("https://localhost:7225/api/User/GetUser");
-
-//    if (result.ok) {
-//        const data = await result.json();
-//        console.log(data);
-//    } else {
-//        console.error(`Error: ${result.status}`);
-//    }
-
-
-// var a = await fetch("https://localhost:7225/api/User/ReegisterUser",{ method: 'POST' })
-// console.log(a);
-
-// var result = await fetch("/api/User/RegisterUser", {
-//     //         method: "POST",
-//     //         headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") },
-
-
-    // }
-
-    //         fetch("api/voorstelling/nieuweVoorstelling", {
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") },
-    //             body: JSON.stringify({
-    //                 Naam: voorstellingNaam,
-    //                 Zaal: zaalnummer,
-    //                 img: "image",
-    //                 Prijs: prijs,
-    //                 Genre: genre,
-    //                 Tijd: tijdsduur,
-    //                 datum: datumTijd,
-    //                 Artiest: artiest,
-    //                 Speelduur: 120,
-    //             })
-    //         }).then(response => {
-    //             if (response.status === 405) {
-    //                 alert("This server does not support the POST method for the specified endpoint.");
-    //             } else {
-    //                 response.ok ? alert("voorstelling toegevoegd") : alert("poging mislukt")
-    //             }
-    //         })
-    //     }
 }
-
+const [user, setUser] = useState({});
+    
+function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token: " + response);
+    var userObject = jwtDecode(response.stringify);
+    console.log(userObject);
+    setUser(userObject);
+    document.getElementById("signInDiv").hidden = true;
+  }
     async function fetchZaalData() {
         try {
             const response = await fetch("api/zaal");

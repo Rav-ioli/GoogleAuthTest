@@ -4490,24 +4490,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MrFre\\.nuget\\packages\\": {}
+    "C:\\Users\\ravo2\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MrFre\\TestClient\\Backend\\Backend.csproj",
+      "projectUniqueName": "D:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\MrFre\\TestClient\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\MrFre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MrFre\\TestClient\\Backend\\obj\\",
+      "projectPath": "D:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\ravo2\\.nuget\\packages\\",
+      "outputPath": "D:\\Github\\GoogleAuthTest\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MrFre\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ravo2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
