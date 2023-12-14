@@ -1,10 +1,8 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { jwtDecode } from "jwt-decode";
 import { Link, NavLink } from "react-router-dom";
 import '../Styles/VoegVoorstellingToe.css';
-import Cookies from 'js-cookie';
-import { useUser } from "../UserContext";
-
+import FetchData from "../DataFetcher";
 
 const VoorstellingAdding= ()=> {
     const [voorstellingNaam, setVoorstelllingNaam] = useState("");
@@ -40,6 +38,7 @@ const VoorstellingAdding= ()=> {
             // } else {
 
 
+    console.log(voorstellingNaam, genre);
     //fetch aanmaken en de url meegeven body namen moet zelfde zijn als in de backend
    await fetch("https://localhost:7225/api/User/login", {
         method: "POST",
@@ -76,99 +75,36 @@ function handleCallbackResponse(token) {
     // console.log(userObject);
     // setUser(userObject);
     // document.getElementById("signInDiv").hidden = true;
-
-
-   // localStorage.setItem("token", token);
-     Cookies.set("token", token);
-     console.log("Token added to cookies");
-   
-    HandleToken(token);
+    localStorage.setItem("token", token);
+    console.log("Token added to local storage");
+    HandleToken();
   }
-  function HandleToken(token) {
-    // const storedToken = localStorage.getItem("token");
-    // if (storedToken) {
-    //     // Print the contents of the token to the console
-    //     const decodedToken = jwtDecode(storedToken);
-    //     console.log("Token contents:", decodedToken);
-    //     const authenticationLevel = decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication"]
-    //     console.log(authenticationLevel);
-    // } else {
-    //     console.log("Token not found in localStorage");
-    // }
-    const storedToken= Cookies.get("token");
-
-    const decodedToken = jwtDecode(storedToken);
-    console.log("Token contents:", decodedToken);
+  function HandleToken() {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+        // Print the contents of the token to the console
+        const decodedToken = jwtDecode(storedToken);
+        console.log("Token contents:", decodedToken);
         const authenticationLevel = decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication"]
         console.log(authenticationLevel);
+    } else {
+        console.log("Token not found in localStorage");
+    }
   }
 
 
-async function TestMethod(e) {
-    e.preventDefault();
-    await fetch("https://localhost:7225/api/User/TestMethod", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + Cookies.get("token") },
-       
-    }).then(async (response) => {
-        if (response.status === 405) {
-            alert("This server does not support the POST method for the specified endpoint.");
-        } else {
-            if (response.ok) {
-            console.log("poging gelukt")
-            
-            } else {
-                alert("poging mislukt");
-            }
-        }
-        console.log(response.status);
-    })
-}
-async function TestMethodPolicies(e) {
-    e.preventDefault();
-    const token = Cookies.get("token");
-    await fetch("https://localhost:7225/api/User/TestMethodPolicy", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
-    }).then(async (response) => {
-        if (response.status === 405) {
-            alert("This server does not support the POST method for the specified endpoint.");
-        } else {
-            if (response.ok) {
-            console.log("poging gelukt")
-            
-            } else {
-                console.log("poging mislukt");
-            }
-        }
-        console.log(response.status);
-        console.log(token);
-    })
-}
-async function ValidateToken(e) {
-    const roles = ["Admin", "Ervaringsdeskundige"];     // replace with the roles you want to validate
 
+    // async function fetchZaalData() {
+    //     try {
+    //         const response = await fetch("api/zaal");
+    //         const responseJSON = await response.json();
+    //         console.log(responseJSON);
+    //         setZaalData(responseJSON);
+    //     } catch {
 
-    const storedToken= Cookies.get("token");
-    const decodedToken = jwtDecode(storedToken);
-    console.log("Token contents:", decodedToken);
-        const authenticationLevel = decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication"]
+    //     }
+    // }
 
-    const token = Cookies.get("token");
-fetch('https://localhost:7225/api/User/Validate', { // replace with your server's address
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + token, // replace 'token' with your JWT token
-  },
-  body: JSON.stringify(authenticationLevel),
-})
-.then(response => response.json())
-.then(data => console.log(data))
-.catch((error) => {
-  console.error('Error:', error);
-});
-}
     return (
         <form>
             <div className="container" id="container">
@@ -209,9 +145,7 @@ fetch('https://localhost:7225/api/User/Validate', { // replace with your server'
                                     <button className="btn-Artiest-Add">&#43; artiest</button>
                                 </NavLink></div>
                                 <div className="button-save-div"><button className="btn-Save" onClick={submitHandler}>Save</button></div>
-                                <div className="button-save-div"><button className="btn-Save" onClick={TestMethod}>TestMethod</button></div>
-                                <div className="button-save-div"><button className="btn-Save" onClick={TestMethodPolicies}>TestMethodPolicies</button></div>
-                                <div className="button-save-div"><button className="btn-Save" onClick={TestMethodPolicies}>Validate</button></div>
+                                <h1><strong>Admin</strong></h1>
                             </div>
                         </div>
                     </div>
