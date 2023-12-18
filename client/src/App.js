@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-import logo from "./logo.svg";
-import { useEffect } from "react";
-import { useState } from "react";
-import { jwtDecode } from "jwt-decode";
-import "./App.css";
-=======
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //import AppRoutes from "./AppRoutes";
@@ -15,7 +8,9 @@ import Inloggen from "./Pages/Login";
 import AdminPanel from "./Pages/AdminPanel";
 import PrivateRoute from "./PrivateRoute";
 import { UserProvider } from "./UserContext";
->>>>>>> Stashed changes
+import jwtDecode from "jwt-decode";
+import { useState, useEffect } from "react";
+
 
 function App() {
   function displayFallBackImage() {
@@ -59,26 +54,6 @@ function App() {
   }, []);
 
   return (
-<<<<<<< Updated upstream
-    <div className="App">
-      <div id="signInDiv"></div>
-      {Object.keys(user).length != 0 && (
-        <button onClick={(e) => handleSignOutEvent(e)}>log uit</button>
-      )}
-
-      {user && (
-        <div>
-          <img
-            className="userImg"
-            src={user.picture}
-            onError={displayFallBackImage()}
-            alt="user-image"
-          />
-          <h3>{user.name}</h3>
-        </div>
-      )}
-    </div>
-=======
     <UserProvider>
       <Router>
         <Routes>
@@ -100,7 +75,6 @@ function App() {
         </Routes>
       </Router>
     </UserProvider>
->>>>>>> Stashed changes
   );
 }
 
