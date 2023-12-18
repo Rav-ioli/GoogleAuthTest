@@ -37,7 +37,7 @@ const VoorstellingAdding= ()=> {
 // //         return [];
 // //     }
 //   }  
-const[userRoles, setUserRoles] = useState("");
+const[userRoles, setUserRoles] = useState([]);
 
         async function submitHandler(e) {
              e.preventDefault();
@@ -199,7 +199,7 @@ e.preventDefault();
     const storedToken= Cookies.get("token");
     const decodedToken = jwtDecode(storedToken);
     console.log("Token contents:", decodedToken);
-        const authenticationLevel = decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication"]
+        const authenticationLevel = decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
 
     const token = Cookies.get("token");
 fetch('https://localhost:7225/api/User/Validate', { // replace with your server's address
@@ -303,14 +303,14 @@ fetch('https://localhost:7225/api/User/Validate', { // replace with your server'
                                  <div className="button-save-div"><button className="btn-Save" onClick={Validate}>Validate</button></div>
                                
                               
-                                 {
+                                 {/* {
                                       userRoles.indexOf("Admin") !== -1 ?   
                                                 
                                 <div className="button-save-div" >
                                     <button onClick={() => navigate('/adminpanel')}>
                                         <p>Admin</p>
                                     </button>
-                                </div> : <></>}
+                                </div> : <></>} */}
                             </div>
                         </div>
                     </div>
