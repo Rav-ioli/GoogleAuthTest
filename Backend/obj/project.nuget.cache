@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "XFwSifs8AGv1ESv8vsYD+fc5XXk3UI0E3Nf+ImnArHVYsFdp6QZUxd99mgLY+Zz/o4xK9Bbe8mLIoAlfYOWF/g==",
   "success": true,
   "projectFilePath": "C:\\Users\\MrFre\\TestClient\\Backend\\Backend.csproj",
+=======
+  "dgSpecHash": "56o7WVETaivcvKfKCbhcErGHE89oot+RmIb72QqeiEiOGeu6CkICriWIk8PdhIx7ZJRrW36LUe71dTAjZhh16w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ravo2\\Documents\\GitHub\\GoogleAuthTest2\\GoogleAuthTest\\Backend\\Backend.csproj",
+>>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\MrFre\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.1\\microsoft.aspnetcore.openapi.7.0.1.nupkg.sha512",
     "C:\\Users\\MrFre\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
