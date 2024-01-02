@@ -1,22 +1,20 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
-  "dgSpecHash": "XFwSifs8AGv1ESv8vsYD+fc5XXk3UI0E3Nf+ImnArHVYsFdp6QZUxd99mgLY+Zz/o4xK9Bbe8mLIoAlfYOWF/g==",
+  "dgSpecHash": "AE72vbIdc6pbhmtdh8jZupN+t4G3HSBXMS+2qwDAibPMElfAHJIkMTk+W/T7RcJqm6+KyPcINxBayXSb1Sy4rw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MrFre\\TestClient\\Backend\\Backend.csproj",
-=======
-  "dgSpecHash": "56o7WVETaivcvKfKCbhcErGHE89oot+RmIb72QqeiEiOGeu6CkICriWIk8PdhIx7ZJRrW36LUe71dTAjZhh16w==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\ravo2\\Documents\\GitHub\\GoogleAuthTest2\\GoogleAuthTest\\Backend\\Backend.csproj",
->>>>>>> Stashed changes
+  "projectFilePath": "D:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\MrFre\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.1\\microsoft.aspnetcore.openapi.7.0.1.nupkg.sha512",
-    "C:\\Users\\MrFre\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
-    "C:\\Users\\MrFre\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
-    "C:\\Users\\MrFre\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
-    "C:\\Users\\MrFre\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
-    "C:\\Users\\MrFre\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
-    "C:\\Users\\MrFre\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    "C:\\Users\\ravo2\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.1\\microsoft.aspnetcore.openapi.7.0.1.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\ravo2\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.14\\microsoft.netcore.app.host.win-x64.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }

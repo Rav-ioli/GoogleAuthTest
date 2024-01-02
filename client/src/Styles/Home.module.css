@@ -1,0 +1,149 @@
+#wachtkamer_img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+#over_ons {
+  margin-top: 3%;
+  text-align: center;
+  font-size: 65px;
+}
+
+#blok_1 {
+  background-color: #fffcbb;
+  width: 90%;
+  height: 60vh;
+  margin: 5%;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: #eeebb1;
+  border-width: 20px;
+  list-style-type: none;
+}
+
+#hulpverlening {
+  margin: 2%;
+  width: 40%;
+  float: left;
+}
+
+#text1 {
+  font-size: 200%;
+  margin: 2.5%;
+  float: left;
+  width: 40%;
+}
+
+#icon_holder {
+  margin-top: -5%;
+  margin-left: 12.5%;
+}
+
+#text_holder {
+  margin-top: -7.5%;
+  margin-left: 14%;
+}
+
+#onderzoek_icon {
+  margin: 5%;
+  width: 20%;
+  display: inline-block;
+}
+
+#onderzoek_text {
+  font-size: 200%;
+  margin: 5%;
+  width: 20%;
+  display: inline-block;
+}
+
+#chat_icon {
+  margin: 5%;
+  width: 20%;
+  display: inline-block;
+}
+
+#chat_text {
+  font-size: 200%;
+  margin: 5%;
+  margin-left: 8%;
+  width: 20%;
+  display: inline-block;
+}
+
+#info_icon {
+  margin: 5%;
+  margin-bottom: 7.5%;
+  width: 16%;
+  display: inline-block;
+}
+
+#info_text {
+  font-size: 200%;
+  margin: 5%;
+  margin-left: 2%;
+  width: 20%;
+  display: inline-block;
+}
+
+#voor_bedrijven {
+  margin-top: 5%;
+  text-align: center;
+  font-size: 65px;
+}
+
+#blok_2 {
+  background-color: #fffcbb;
+  width: 90%;
+  height: 60vh;
+  margin: 5%;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: #eeebb1;
+  border-width: 20px;
+  list-style-type: none;
+}
+
+#business_man {
+  margin: 2%;
+  width: 40%;
+  float: left;
+}
+
+#text2 {
+  font-size: 200%;
+  margin: 2.5%;
+  float: left;
+  width: 40%;
+}
+#ul { 
+    list-style-type: none;
+   margin-top: 4%;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #333333; */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+#li{ justify-content: center;
+    display:block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+#aaa {  display: block;
+    color: black;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+ #aaa:hover {
+    background-color: #bbbbbb;
+  }
+  #icon{
+    width: 250px;
+    height: 250px;
+    
+  }

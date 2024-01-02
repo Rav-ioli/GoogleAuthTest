@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useUser } from "./UserContext";
 import { Navigate } from "react-router-dom";
-import Cookies from "js-cookie";
+
 
 const PrivateRoute = (props) => {
   const user = useUser();
-  user.jwt = Cookies.get("token");
   const [isLoading, setIsLoading] = useState(true);
   const [isValid, setIsValid] = useState(null);
 
@@ -16,7 +15,7 @@ const PrivateRoute = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + Cookies.get("token"), 
+        Authorization: "Bearer " + user.jwt, 
       },
       body: JSON.stringify(props.roles), 
     }).then((isValid) => {

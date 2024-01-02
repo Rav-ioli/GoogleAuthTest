@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import { UserProvider } from "./UserContext";
 import {jwtDecode} from "jwt-decode";
 import { useState, useEffect } from "react";
+import UserPortal from "./Pages/UserPortal";
 
 
 function App() {
@@ -18,20 +19,25 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path="/adminpanel"
+            path="/adminportal"
             element={
               <PrivateRoute roles={["AdminOnly"]}>
                 <AdminPanel />
-              </PrivateRoute>
-            }
-          />
+              </PrivateRoute>            }          />
           <Route path="/home" element={<Home />} />
-          <Route path="/google-login" element={<GoogleLogin />} />
+          <Route
+            path="/ervaringsdeskundigeportal"
+            element={
+              <PrivateRoute roles={["UserOnly"]}>
+                <UserPortal />
+              </PrivateRoute>            }          />
+          <Route path="/*" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/GoogleLogin" element={<GoogleLogin />} />
           <Route
             path="/voeg-voorstelling-toe"
-            element={<VoegVoorstellingToe />}
-          />
-          <Route path="/login" element={<Inloggen />} />
+            element={<VoegVoorstellingToe />}          />
+          <Route path="/login" element={<GoogleLogin />} />
         </Routes>
       </Router>
     </UserProvider>
