@@ -27,33 +27,33 @@ console.log(userContext.getRoles())
     
       const [user, setUser] = useState({});
     
-      function handleCallbackResponse(response) {
-        console.log("Encoded JWT ID token: " + response.credential);
-        var userObject = jwtDecode(response.credential);
-        console.log(userObject);
-        setUser(userObject);
-        document.getElementById("signInDiv").hidden = true;
-      }
+      // function handleCallbackResponse(response) {
+      //   console.log("Encoded JWT ID token: " + response.credential);
+      //   var userObject = jwtDecode(response.credential);
+      //   console.log(userObject);
+      //   setUser(userObject);
+      //   document.getElementById("signInDiv").hidden = true;
+      // }
     
-      function handleSignOutEvent(event) {
-        setUser({});
-        document.getElementById("signInDiv").hidden = false;
-      }
+      // function handleSignOutEvent(event) {
+      //   setUser({});
+      //   document.getElementById("signInDiv").hidden = false;
+      // }
     
-      useEffect(() => {
-        /*global google*/
-        google.accounts.id.initialize({
-          client_id:
-            "235973845509-5fddgbhrq2qs29am82tsr7unpch77gms.apps.googleusercontent.com",
-          callback: handleCallbackResponse,
-        });
-        google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-          theme: "outline",
-          width: 500,
-        });
-        /*global google*/
-        google.accounts.id.prompt();
-      }, []);
+      // useEffect(() => {
+      //   /*global google*/
+      //   google.accounts.id.initialize({
+      //     client_id:
+      //       "235973845509-5fddgbhrq2qs29am82tsr7unpch77gms.apps.googleusercontent.com",
+      //     callback: handleCallbackResponse,
+      //   });
+      //   google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+      //     theme: "outline",
+      //     width: 500,
+      //   });
+      //   /*global google*/
+      //   google.accounts.id.prompt();
+      // }, []);
     
 
       const login = async(token)=>{
@@ -90,8 +90,7 @@ console.log(userContext.getRoles())
 
 
       }
-
-
+const handleSignOutEvent = async(e)=>{}
       return (
         <>
         <GuestBar>
