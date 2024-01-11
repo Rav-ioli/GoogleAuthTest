@@ -11,8 +11,8 @@ import { UserProvider } from "./UserContext";
 import {jwtDecode} from "jwt-decode";
 import { useState, useEffect } from "react";
 import UserPortal from "./Pages/UserPortal";
-import Register from "./Pages/Register";
-import UserHome from "./Pages/UserHome";
+
+
 function App() {
   return (
     <UserProvider>
@@ -38,8 +38,6 @@ function App() {
             path="/voeg-voorstelling-toe"
             element={<VoegVoorstellingToe />}          />
           <Route path="/login" element={<GoogleLogin />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/UserHome" element={<UserHome />} />
         </Routes>
       </Router>
     </UserProvider>

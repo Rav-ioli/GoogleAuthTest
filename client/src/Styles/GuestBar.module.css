@@ -92,7 +92,7 @@
     border-radius: 4px;
     background: #ffffff;
     color: #000000;
-    border: 1px solid black; /* Added black stroke */
+    border: 2px solid black; /* Added black stroke */
     }
 
 #Darkmode {
@@ -108,7 +108,7 @@
     border-radius: 4px;
     background: #ffffff;
     color: #000000;
-    border: 1px solid black; /* Added black stroke */
+    border: 2px solid black; /* Added black stroke */
     }
 
 
@@ -118,7 +118,7 @@
     align-items: center;
     padding: 0 1rem;
     width: 100%;
-border: 1px solid black; /* Added black stroke */
+border: 2px solid black; /* Added black stroke */
 }
 
 .navbar__button {
@@ -139,7 +139,7 @@ border: 1px solid black; /* Added black stroke */
     border-radius: 4px;
     background: #73e2d5;
     color: #000000;
-    border: 1px solid black; /* Added black stroke */
+    border: 2px solid black; /* Added black stroke */
 }
 
 .button:hover {

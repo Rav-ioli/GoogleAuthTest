@@ -33,10 +33,10 @@ export default function GuestBar() {
                     <a href="/" class={styles.navbar__links} id={styles.Darkmode}>Darkmode</a>
                 </li>
                 <li class={styles.navbar__item}>
-                    <a href="/login" class={styles.button}>Inloggen</a>
+                    <a href="/Googlelogin" class={styles.button}>Inloggen</a>
                 </li>
                 <li class={styles.navbar__item}>
-                    <a href="/Register" class={styles.button}>Registreren</a>
+                    <a href="/signup" class={styles.button}>Registreren</a>
                 </li>
                 
                 <li class={styles.navbar__item}>
