@@ -5,8 +5,7 @@ import styles from  '../Styles/UserHome.module.css';
 import GuestBar from './Bars/GuestBar';
 import UserBar from './Bars/UserBar';
 import ContactGegevens from './Bars/ContactGegevensBar';
-// import  { useHistory } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // const ProtectedComponent = () => {
   // if (authFails) {
@@ -17,7 +16,7 @@ import ContactGegevens from './Bars/ContactGegevensBar';
 // }
 
 export default function UserHome() {
-
+  const navigate = useNavigate();
   // function SwitchURL(url, object){
   //   console.log("\n\n\n\n\n\nButton Pressed: " + object.name)
   //   const navigate = useNavigate();
@@ -35,7 +34,7 @@ export default function UserHome() {
     {
       id: 'OnderzoekenButton',
       name: 'Actieve Onderzoeken',
-      link: '/onderzoeken'
+      link: '/UserHome/Onderzoeken'
     },
     {
       id: 'ChatsButton',
@@ -75,7 +74,7 @@ export default function UserHome() {
               <ul>
                 {menuButtons.map((item) => (
                   // <button id={styles.menuButton} key={item.id} name={"Button" + item.name} onClick={SwitchURL(item.link, item)}>{item.name}</button>
-                  <li id={styles.menuButton} key={item.id} name={"Button" + item.name} class={styles.navbar__item}>
+                  <li onClick={()=>navigate(item.link)}id={styles.menuButton} key={item.id} name={"Button" + item.name} class={styles.navbar__item}>
                     <a href={item.link} class={styles.button}>{item.name}</a>
                   </li>
                 ))}

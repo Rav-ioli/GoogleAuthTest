@@ -13,6 +13,9 @@ import { useState, useEffect } from "react";
 import UserPortal from "./Pages/UserPortal";
 import Register from "./Pages/Register";
 import UserHome from "./Pages/UserHome";
+import Onderzoeken from "./Pages/Onderzoeken";
+import GedetaileerdOnderzoek from "./Pages/GedetailleerdOnderzoek";
+
 function App() {
   return (
     <UserProvider>
@@ -31,6 +34,9 @@ function App() {
               <PrivateRoute roles={["UserOnly"]}>
                 <UserPortal />
               </PrivateRoute>            }          />
+
+              <Route path="/UserHome/Onderzoeken" element={<PrivateRoute roles={["UserOnly"]}><Onderzoeken/></PrivateRoute>} />
+              <Route path="/UserHome/Onderzoek" element={<PrivateRoute roles={["UserOnly"]}><GedetaileerdOnderzoek/></PrivateRoute>} />
           <Route path="/*" element={<Home />} />
           <Route path="/" element={<Home />} />
           <Route path="/GoogleLogin" element={<GoogleLogin />} />

@@ -14,7 +14,6 @@ export default function GoogleLogin(){
   const [password, setPassword] = useState("");
  const navigate = useNavigate();
   const userContext = useUser();
-console.log(userContext.getRoles())
     function displayFallBackImage() {
         // Use document.querySelector to find the element with the class 'userImg'
         var userImgElement = document.querySelector(".userImg");

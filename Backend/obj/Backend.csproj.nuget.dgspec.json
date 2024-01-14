@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj": {}
+    "d:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "D:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj": {
+    "d:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj",
+        "projectUniqueName": "d:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "D:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj",
+        "projectPath": "d:\\Github\\GoogleAuthTest\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\ravo2\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\GoogleAuthTest\\Backend\\obj\\",
+        "outputPath": "d:\\Github\\GoogleAuthTest\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ravo2\\AppData\\Roaming\\NuGet\\NuGet.Config",
