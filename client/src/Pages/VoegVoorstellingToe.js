@@ -21,20 +21,20 @@ const VoorstellingAdding= ()=> {
         async function submitHandler(e) {
              e.preventDefault();
 
-            // if (voorstellingNaam.length === 0 || zaalnummer === 0 || prijs === 0 || artiest === 0 || datumTijd.length === 0 || tijdsduur.length === 0
-            //     || tijdsduur.length !== 5 || datumTijd.length !== 10) {
-            //     setError(true);
-            // }
-            // else if (isNaN(zaalnummer) || isNaN(prijs)) {
-            //     await fetchZaalData();
-            //     setInvalidErrorZaal(true);
-            //     setInvalidErrorPrijs(true);
-            //     zaalData.forEach(zaal => {
-            //         if (zaal.id !== zaalnummer) {
-            //             setInvalidErrorZaal2(true);
-            //         }
-            //     })
-            // } else {
+            if (voorstellingNaam.length === 0 || zaalnummer === 0 || prijs === 0 || artiest === 0 || datumTijd.length === 0 || tijdsduur.length === 0
+                || tijdsduur.length !== 5 || datumTijd.length !== 10) {
+                setError(true);
+            }
+            else if (isNaN(zaalnummer) || isNaN(prijs)) {
+                await fetchZaalData();
+                setInvalidErrorZaal(true);
+                setInvalidErrorPrijs(true);
+                zaalData.forEach(zaal => {
+                    if (zaal.id !== zaalnummer) {
+                        setInvalidErrorZaal2(true);
+                    }
+                })
+            } 
 
 
     console.log(voorstellingNaam, genre);
