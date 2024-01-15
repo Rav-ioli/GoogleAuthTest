@@ -12,6 +12,7 @@ export default function GoogleLogin(){
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
  const navigate = useNavigate();
   const userContext = useUser();
 console.log(userContext.getRoles())
@@ -63,35 +64,41 @@ console.log(userContext.getRoles())
 
        async function LoginHandler(e){
        e.preventDefault();
+        // error ? setError(false) : setError(true);
 
-       var result = await fetch("https://localhost:7225/api/User/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json"
-        , "Authorization": "Bearer " + sessionStorage.getItem("token") 
-      },
-        body: JSON.stringify({
-            email: email,
-            password: password,
-        }), 
-    }).then(async response => {
-        if (response.status === 405) {
-            alert("This server does not support the POST method for the specified endpoint.");
-        } else {
+ if (email.length === 0 || password.length === 0) {
+                setError(true);
+            }
+           else {setError(false);
+            alert("login niet geimplementeerd")
+    //    var result = await fetch("https://localhost:7225/api/User/login", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json"
+    //     , "Authorization": "Bearer " + sessionStorage.getItem("token") 
+    //   },
+    //     body: JSON.stringify({
+    //         email: email,
+    //         password: password,
+    //     }), 
+    // }).then(async response => {
+    //     if (response.status === 405) {
+    //         alert("This server does not support the POST method for the specified endpoint.");
+    //     } else {
             
-          if (response.ok) {
-            const result = await response.json();
-            await login(result.token)
-          }else {
-                  console.log('Unexpected format of response:', response);
-              }
-          } 
-        }
-    )
+    //       if (response.ok) {
+    //         const result = await response.json();
+    //         await login(result.token)
+    //       }else {
+    //               console.log('Unexpected format of response:', response);
+    //           }
+    //       } 
+    //     }
+    // )
 
 
       }
 
-
+    }
       return (
         <>
         <GuestBar>
@@ -126,10 +133,14 @@ console.log(userContext.getRoles())
           <div id={styles.username_blok}>
             <h3 id={styles.username_text}>Email:</h3>
             <input type="text" id={styles.username_input} onChange={(e)=> setEmail(e.target.value)} autoFocus/>
+            <br></br>
+            {error && email.length <= 0 ? <label className="warning-no-input">Email mag niet leeg zijn</label> : ""}
           </div>
           <div id={styles.password_blok}>
-            <h3 id={styles.password_text}>Password:</h3>
+            <h3 id={styles.password_text}>Wachtwoord:</h3>
             <input type="password"  onChange={(e)=> setPassword(e.target.value)} id={styles.password_input}/>
+            <br></br>
+            {error && password.length <= 0 ? <label className="warning-no-input">Wachtwoord mag niet leeg zijn</label> : ""}
           </div>
           <button onClick={LoginHandler} id={styles.login_button}>Login</button>
         </div>
