@@ -14,7 +14,7 @@ export default function GoogleLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const userContext = useUser();
+  const user = useUser();
   function displayFallBackImage() {
     // Use document.querySelector to find the element with the class 'userImg'
     var userImgElement = document.querySelector(".userImg");
@@ -25,7 +25,7 @@ export default function GoogleLogin() {
     }
   }
 
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
@@ -34,7 +34,8 @@ export default function GoogleLogin() {
    handleGoogleLoginEvent(userObject);
     console.log(userObject);
     console.log(userObject.email);
-    setUser(userObject);
+    // user.Login(userObject);
+    // setUser(userObject);
     document.getElementById("signInDiv").hidden = true;
   }
   async function handleGoogleLoginEvent(event) {
@@ -90,7 +91,7 @@ export default function GoogleLogin() {
   }, []);
 
   const login = async (token) => {
-    await userContext.Login(token);
+    await user.Login(token);
     navigate("/home");
   };
 

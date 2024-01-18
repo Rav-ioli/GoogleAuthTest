@@ -33,7 +33,7 @@ export default function Home() {
         )}
         {userContext.getRoles().includes("Ervaringsdeskundige") ? (
         <li id={styles.li}>
-          <a href="/ervaringsdeskundigeportal" id={styles.aaa}>
+          <a href="/userhome" id={styles.aaa}>
             <Icon id={styles.icon} icon="ph:user-bold" />
             <br></br>
             Ervaringsdeskundige Portal

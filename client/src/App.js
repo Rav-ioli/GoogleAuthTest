@@ -15,6 +15,8 @@ import Register from "./Pages/Register";
 import UserHome from "./Pages/UserHome";
 import Onderzoeken from "./Pages/Onderzoeken";
 import GedetaileerdOnderzoek from "./Pages/GedetailleerdOnderzoek";
+import SetupChat from "./Pages/Chat/SetupChat";
+
 
 function App() {
   return (
@@ -34,7 +36,7 @@ function App() {
               <PrivateRoute roles={["UserOnly"]}>
                 <UserPortal />
               </PrivateRoute>            }          />
-
+            <Route path="/chat" element= {<SetupChat/>}/>
               <Route path="/UserHome/Onderzoeken" element={<PrivateRoute roles={["UserOnly"]}><Onderzoeken/></PrivateRoute>} />
               <Route path="/UserHome/Onderzoek" element={<PrivateRoute roles={["UserOnly"]}><GedetaileerdOnderzoek/></PrivateRoute>} />
           <Route path="/*" element={<Home />} />

@@ -52,7 +52,7 @@ export default function Onderzoeken() {
       link: "/UserHome/Onderzoek",
       titel: item.titel,
       beschrijving: item.korteBeschrijving,
-      locatie: item.locatie || "N/A",
+      locatie: item.soortOnderzoek === "Enquete" ? "Online" : item.soortOnderzoek,
       onderzoekid: item.onderzoekId,
     }));
 

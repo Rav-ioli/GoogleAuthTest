@@ -17,7 +17,7 @@ export default function GedetaileerdOnderzoek() {
   // const korteBeschrijving = 'Test onze website op accessibility, alle feedback is gevraagd.';
   const [volleBeschrijving,setVolleBeschrijving] = useState('Elden Ring is an upcoming action role-playing game developed by FromSoftware and published by Bandai Namco Entertainment. The game is a collaborative effort between game director Hidetaka Miyazaki and fantasy novelist George R. R. Martin. It is scheduled for release for Microsoft Windows, PlayStation 4, PlayStation 5, Xbox One, and Xbox Series X/S on 21 January 2022.');
   const [locatie,setLocatie] = useState('Tokyo, Japan');
-  const [link,setLink] = useState('https://www.google.com');
+  const [link,setLink] = useState('https://www.google.com/search?q=');
   const [beloning,setBeloning] = useState('€ 50,-');
   const [doelgroep,setDoelgroep] = useState('Gamers');
 
@@ -38,7 +38,7 @@ export default function GedetaileerdOnderzoek() {
     setVolleBeschrijving(data.korteBeschrijving)
     setLocatie(data.soortOnderzoek === "Enquete" ? "Online" : data.soortOnderzoek);
     setBeloning(data.beloning)
-
+    setLink(link+data.titel)
 
 
 
