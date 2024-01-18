@@ -175,9 +175,10 @@
 }
 
 #beperking_input {
+    background: none;
     width: 80%;
     height: 90%;
-    margin-left: 15%;
+    margin-left: 15%;   
     display: flex;
     margin-top: -30.5px;
     border-radius: 5px;
@@ -250,6 +251,7 @@
 }
 
 #hulpmiddel_input {
+    background: none;
     width: 80%;
     height: 90%;
     margin-left: 15%;

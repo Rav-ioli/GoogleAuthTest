@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 import { useUser } from "../UserContext";
 import { useNavigate } from "react-router-dom";
 
+
 export default function GoogleLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,11 +30,45 @@ export default function GoogleLogin() {
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
     var userObject = jwtDecode(response.credential);
+   
+   handleGoogleLoginEvent(userObject);
     console.log(userObject);
+    console.log(userObject.email);
     setUser(userObject);
     document.getElementById("signInDiv").hidden = true;
   }
+  async function handleGoogleLoginEvent(event) {
+    var result = await fetch("https://localhost:7225/api/User/LoginGoogle", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
 
+      },
+      body: JSON.stringify({
+       email: event.email,
+       audience: event.aud,
+       issuer: event.iss,
+      }),
+    }).then(async (response) => {
+      if (response.status === 405) {
+        alert(
+          "This server does not support the POST method for the specified endpoint."
+        );
+      } else {
+        if (response.status === 404) {
+            navigate("/Register");
+        }
+        if (response.ok) {
+          const result = await response.json();
+          await login(result.token);
+        } else {
+          console.log("Unexpected format of response:", response);
+        }
+      }
+    });
+
+  }
+ 
   // function handleSignOutEvent(event) {
   //   setUser({});
   //   document.getElementById("signInDiv").hidden = false;
