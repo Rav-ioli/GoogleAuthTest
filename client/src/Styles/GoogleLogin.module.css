@@ -98,3 +98,8 @@
     margin-top: 5%;
     margin-left: 30%;
 }
+#error_text{
+    color: red;
+    margin-left: 30%;
+    font-size: 70%;
+}

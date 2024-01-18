@@ -6,7 +6,6 @@ export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
     const [jwt, setJwt] = useState(Cookies.get("jwt"));
-
     async function Login(token) {
         Cookies.set("jwt", token);
         setJwt(token)
