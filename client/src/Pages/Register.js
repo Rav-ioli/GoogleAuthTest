@@ -35,8 +35,8 @@ export default function GoogleLogin() {
     }
   }
   useEffect(() => {
-    fetchBeperkingen();
-    fetchHulpmiddelen();
+    // fetchBeperkingen();
+    // fetchHulpmiddelen();
   }, []);
 
   // function handleCallbackResponse(response) {
@@ -217,6 +217,7 @@ export default function GoogleLogin() {
           <div id={styles.voornaam_blok}>
             <h3 id={styles.voornaam_text}>Voornaam:</h3>
             <input
+              aria-label="Voornaam invoer"
               placeholder=""
               onChange={() => console.log(magCommercieel)}
               class={styles.input}
@@ -228,6 +229,7 @@ export default function GoogleLogin() {
           <div id={styles.achternaam_blok}>
             <h3 id={styles.achternaam_text}>Achternaam:</h3>
             <input
+              aria-label="Achternaam invoer"
               placeholder=""
               onChange={(e) => setAchternaam(e.target.value)}
               class={styles.input}
@@ -243,6 +245,7 @@ export default function GoogleLogin() {
             <h3 id={styles.email_text}>Email:</h3>
             <input
               placeholder=""
+              aria-label="Email invoer"
               onChange={(e) => setEmail(e.target.value)}
               class={styles.input}
               type="text"
@@ -253,6 +256,7 @@ export default function GoogleLogin() {
             <h3 id={styles.telnr_text}>Telefoonnummer:</h3>
             <input
               placeholder=""
+              aria-label="Telefoonnummer invoer"
               onChange={(e) => setTelefoonnummer(e.target.value)}
               class={styles.input}
               type="text"
@@ -263,6 +267,7 @@ export default function GoogleLogin() {
             <h3 id={styles.postcode_text}>Postcode:</h3>
             <input
               placeholder=""
+              aria-label="Postcode invoer"
               onChange={(e) => setPostcode(e.target.value)}
               class={styles.input}
               type="text"
@@ -271,13 +276,18 @@ export default function GoogleLogin() {
           </div>
 
           <div id={styles.beperkinginvoerdiv}>
-            <button id={styles.addbeperking} onClick={addbeperkingToList}>
+            <button
+              aria-label="Knop, voeg ingevoerde beperking toe"
+              id={styles.addbeperking}
+              onClick={addbeperkingToList}
+            >
               +
             </button>
             {/* <input type="text" id={styles.beperking_input} className="beperking_input" placeholder="Voeg beperking toe" value={inputValue} maxlength="60" onChange={(e) => setInputValue(e.target.value)}/> */}
 
             <select
               id={styles.beperking_input}
+              aria-label="Beperking invoer"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             >
@@ -308,6 +318,9 @@ export default function GoogleLogin() {
                   key={index}
                   id={styles.selectedbeperking}
                   name={item.type}
+                  aria-label={
+                    "Beperking: " + item.type + ". Klik om weg te halen"
+                  }
                   onClick={() => RemoveBeperking(item)}
                 >
                   {item.type}
@@ -317,12 +330,17 @@ export default function GoogleLogin() {
           </div>
 
           <div id={styles.hulpmiddelinvoerdiv}>
-            <button id={styles.addhulpmiddel} onClick={addhulpmiddelToList}>
+            <button
+              aria-label="Knop, voeg ingevoerde hulpmiddel toe"
+              id={styles.addhulpmiddel}
+              onClick={addhulpmiddelToList}
+            >
               +
             </button>
             {/* <input type="text" id={styles.hulpmiddel_input} className="hulpmiddel_input" placeholder="Voeg hulpmiddel toe" value={inputValue2} maxlength="60" onChange={(f) => setInputValue2(f.target.value)}/> */}
             <select
               id={styles.hulpmiddel_input}
+              aria-label="Hulpmiddel invoer"
               value={inputValue2}
               onChange={(e) => setInputValue2(e.target.value)}
             >
@@ -346,6 +364,9 @@ export default function GoogleLogin() {
                   key={index}
                   id={styles.selectedhulpmiddel}
                   name={item.type}
+                  aria-label={
+                    "Hulpmiddel: " + item.type + ". Klik hier om weg te halen"
+                  }
                   onClick={() => RemoveHulpmiddel(item)}
                 >
                   {item.type}
@@ -359,7 +380,7 @@ export default function GoogleLogin() {
               <input
                 id={styles.checkbox1}
                 type="checkbox"
-                name="checkbox1"
+                name="checkbox1"  aria-label="Checkbox voor Interviews" 
                 checked={checkedItems.checkbox1 || false}
                 onChange={handleCheckboxChange}
               />
@@ -370,7 +391,7 @@ export default function GoogleLogin() {
               <input
                 id={styles.checkbox2}
                 type="checkbox"
-                name="checkbox2"
+                name="checkbox2" aria-label="Checkbox voor Groepsgesprekken"
                 checked={checkedItems.checkbox2 || false}
                 onChange={handleCheckboxChange}
               />
@@ -381,7 +402,7 @@ export default function GoogleLogin() {
               <input
                 id={styles.checkbox3}
                 type="checkbox"
-                name="checkbox3"
+                name="checkbox3" aria-label="Checkbox voor Online Onderzoeken"
                 checked={checkedItems.checkbox3 || false}
                 onChange={handleCheckboxChange}
               />
@@ -392,7 +413,7 @@ export default function GoogleLogin() {
               <input
                 id={styles.checkbox4}
                 type="checkbox"
-                name="checkbox4"
+                name="checkbox4" aria-label="Checkbox voor Engelstalige Onderzoeken"
                 checked={checkedItems.checkbox4 || false}
                 onChange={handleCheckboxChange}
               />
@@ -408,7 +429,7 @@ export default function GoogleLogin() {
               <input
                 id={styles.commercieel_option1}
                 type="radio"
-                name="commercieleBenadering"
+                name="commercieleBenadering"  aria-label="Voorkeur: Benaderd worden door Commerciële Partijen op Ja" 
                 value="commercieel_option1"
                 checked={selectedCommercieleOption === "commercieel_option1"}
                 onChange={handleCommercieelOptionChange}
@@ -420,7 +441,7 @@ export default function GoogleLogin() {
               <input
                 id={styles.commercieel_option2}
                 type="radio"
-                name="commercieleBenadering"
+                name="commercieleBenadering"  aria-label="Voorkeur: Benaderd worden door Commerciële Partijen op Nee" 
                 value="commercieel_option2"
                 checked={selectedCommercieleOption === "commercieel_option2"}
                 onChange={handleCommercieelOptionChange}
@@ -433,7 +454,7 @@ export default function GoogleLogin() {
             <h2 id={styles.benaderingTitle}>Voorkeur Benadering</h2>
             <label>
               <input
-                id={styles.benader_option1}
+                id={styles.benader_option1}  aria-label="Voorkeur: Telefonisch benadering"
                 type="radio"
                 name="benadering"
                 value="benader_option1"
@@ -448,7 +469,7 @@ export default function GoogleLogin() {
                 id={styles.benader_option2}
                 type="radio"
                 name="benadering"
-                value="benader_option2"
+                value="benader_option2"  aria-label="Voorkeur: Alleen via Portal benaderd worden"
                 checked={selectedOption === false}
                 onChange={handleBenaderingOptionChange}
               />
@@ -459,7 +480,7 @@ export default function GoogleLogin() {
           <div id={styles.password_blok}>
             <h3 id={styles.password_text}>Wachtwoord:</h3>
             <input
-              placeholder=""
+              placeholder=""  aria-label="Password invoer"
               class={styles.input}
               type="text"
               id={styles.password_input}
@@ -469,17 +490,17 @@ export default function GoogleLogin() {
           <div id={styles.confirmpassword_blok}>
             <h3 id={styles.confirmpassword_text}>Bevestig wachtwoord:</h3>
             <input
-              placeholder=""
+              placeholder="" aria-label="Herhaal password invoer"
               class={styles.input}
               type="text"
               id={styles.confirmpassword_input}
               onChange={(e) => setBevestigWachtwoord(e.target.value)}
             />
           </div>
-          <button id={styles.register_button}>Registreer</button>
+          <button aria-label="Registreer knop" id={styles.register_button}>Registreer</button>
           <p id={styles.loginquestion}>
             Al geregistreerd?{" "}
-            <a href="/Googlelogin" id={styles.loginquestion}>
+            <a  aria-label="Al geregistreerd? Link naar de login page" href="/Googlelogin" id={styles.loginquestion}>
               Log hier in
             </a>
           </p>

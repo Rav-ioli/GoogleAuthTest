@@ -16,6 +16,7 @@ import UserHome from "./Pages/UserHome";
 import Onderzoeken from "./Pages/Onderzoeken";
 import GedetaileerdOnderzoek from "./Pages/GedetailleerdOnderzoek";
 import SetupChat from "./Pages/Chat/SetupChat";
+import Gegevens from "./Pages/Gegevens";
 
 
 function App() {
@@ -37,14 +38,17 @@ function App() {
                 <UserPortal />
               </PrivateRoute>            }          />
             <Route path="/chat" element= {<SetupChat/>}/>
-              <Route path="/UserHome/Onderzoeken" element={<PrivateRoute roles={["UserOnly"]}><Onderzoeken/></PrivateRoute>} />
-              <Route path="/UserHome/Onderzoek" element={<PrivateRoute roles={["UserOnly"]}><GedetaileerdOnderzoek/></PrivateRoute>} />
+            <Route path="/UserHome/Onderzoeken" element={<Onderzoeken/>}/>
+            <Route path="/UserHome/Onderzoek" element={<GedetaileerdOnderzoek/>}/>
+              {/* <Route path="/UserHome/Onderzoeken" element={<PrivateRoute roles={["UserOnly"]}><Onderzoeken/></PrivateRoute>} /> */}
+              {/* <Route path="/UserHome/Onderzoek" element={<PrivateRoute roles={["UserOnly"]}><GedetaileerdOnderzoek/></PrivateRoute>} /> */}
           <Route path="/*" element={<Home />} />
           <Route path="/" element={<Home />} />
           <Route path="/GoogleLogin" element={<GoogleLogin />} />
           <Route
             path="/voeg-voorstelling-toe"
             element={<VoegVoorstellingToe />}          />
+<Route path="/gegevens" element={<Gegevens />} />
           <Route path="/login" element={<GoogleLogin />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/UserHome" element={<UserHome />} />

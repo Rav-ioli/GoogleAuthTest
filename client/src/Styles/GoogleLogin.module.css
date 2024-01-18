@@ -48,6 +48,7 @@
 #username_text {
     margin: 1%;
     font-size: 200%;
+    font-family: myFirstFont;
 }
 
 #username_input {
@@ -61,6 +62,7 @@
 #password_text {
     margin: 1%;
     font-size: 200%;
+    font-family: myFirstFont;
 }
 
 #password_input {

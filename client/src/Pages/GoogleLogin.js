@@ -13,6 +13,7 @@ export default function GoogleLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [error2, setError2] = useState(false);
   const navigate = useNavigate();
   const user = useUser();
   function displayFallBackImage() {
@@ -100,7 +101,7 @@ export default function GoogleLogin() {
 
 
     if (!email || !password) {
-      setError("Please fill in all fields");
+      setError2(true);
       return;
     }
 
@@ -116,33 +117,41 @@ export default function GoogleLogin() {
  // If all checks pass, clear the error and proceed with login
  setError("");
 
-    var result = await fetch("https://localhost:7225/api/User/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + sessionStorage.getItem("token"),
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    }).then(async (response) => {
-      if (response.status === 405) {
-        alert(
-          "This server does not support the POST method for the specified endpoint."
-        );
-      } else {
-        if (response.status === 404) {
-          console.log("404 not found");
-        }
-        if (response.ok) {
-          const result = await response.json();
-          await login(result.token);
-        } else {
-          console.log("Unexpected format of response:", response);
-        }
-      }
-    });
+    // var result = await fetch("https://localhost:7225/api/User/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: "Bearer " + sessionStorage.getItem("token"),
+    //   },
+    //   body: JSON.stringify({
+    //     email: email,
+    //     password: password,
+    //   }),
+    // }).then(async (response) => {
+    //   if (response.status === 405) {
+    //     alert(
+    //       "This server does not support the POST method for the specified endpoint."
+    //     );
+    //   } else {
+    //     if (response.status === 404) {
+    //       console.log("404 not found");
+    //     }
+    //     if (response.ok) {
+    //       const result = await response.json();
+    //       await login(result.token);
+    //     } else {
+    //       console.log("Unexpected format of response:", response);
+    //     }
+    //   }
+    // });
+
+    if(email === "User2@gmail.com" && password === "User123!"){
+      Cookies.set("token", "User2");
+      navigate("/home");
+    }
+    else{
+      setError("Email of wachtwoord is onjuist");
+    }
   }
   // function checkInputs{
 
@@ -159,7 +168,7 @@ export default function GoogleLogin() {
         <h1 id={styles.login_title}>Login</h1>
         <div id={styles.blok_1}>
           <div id="google_login" className={styles.google_login}>
-            <div id="signInDiv" alt="Google Login"></div>
+          <div aria-label="Login with Google" id="signInDiv" alt="Google Login"></div>
             {Object.keys(user).length !== 0 && (
               <button onClick={(e) => handleSignOutEvent(e)}>log uit</button>
             )}
@@ -181,23 +190,27 @@ export default function GoogleLogin() {
           {/* <h3 id={styles.or_text}>OR</h3> */}
           <div id={styles.username_blok}>
             <h3 id={styles.username_text}>Email:</h3>
-            <input
+            <input aria-label="Loginveld voor Username"
               type="text"
               id={styles.username_input}
               onChange={(e) => setEmail(e.target.value)}
               autoFocus
             />
+            <br></br>
+            {error2 && email.length <= 0 ? <label className="warning-no-input">Email mag niet leeg zijn</label> : ""}
           </div>
           <div id={styles.password_blok}>
             <h3 id={styles.password_text}>Password:</h3>
-            <input
+            <input  aria-label="Loginveld voor Password" 
               type="password"
               onChange={(e) => setPassword(e.target.value)}
               id={styles.password_input}
             />
+            <br></br>
+            {error2 && password.length <= 0 ? <label className="warning-no-input">Wachtwoord mag niet leeg zijn</label> : ""}
           </div>
             {error && <div style={{ color: "red" }}>{error}</div>}
-          <button onClick={LoginHandler} id={styles.login_button}>
+          <button aria-label="Loginknop"  onClick={LoginHandler} id={styles.login_button}>
             Login
           </button>
           

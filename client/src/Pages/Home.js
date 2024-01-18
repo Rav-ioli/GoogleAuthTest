@@ -6,6 +6,7 @@ import { useUser } from "../UserContext";
 // import { Icon } from '@iconify/react/dist/iconify';
 import { Icon } from "@iconify/react";
 import { Nav, Navvbar } from "react-bootstrap";
+import Cookies from "js-cookie";
 
 export default function Home() {
   const userContext = useUser();
@@ -31,10 +32,10 @@ export default function Home() {
         ) : (
           <></>
         )}
-        {userContext.getRoles().includes("Ervaringsdeskundige") ? (
+        {Cookies.get('token') ? (
         <li id={styles.li}>
           <a href="/userhome" id={styles.aaa}>
-            <Icon id={styles.icon} icon="ph:user-bold" />
+            <Icon id={styles.icon}aria-label="gebruiker icoontje met link om naar gebruikerpage te gaan" icon="ph:user-bold" />
             <br></br>
             Ervaringsdeskundige Portal
           </a>
