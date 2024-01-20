@@ -12,15 +12,19 @@ import GedetaileerdOnderzoek from "./GedetailleerdOnderzoek";
 export default function Onderzoeken() {
   const user = useUser();
   const [searchInput, setSearchInput] = useState("");
-
+  const [filterOpBeperkingen, setFilterOpBeperking] = useState(false);
+  
   const [menuButtons, setMenuButtons] = useState([]);
   const onderzoekid = (id) => {
     localStorage.setItem("onderzoekId", id);
   };
 
   useEffect(() => {
-    fetchOnderzoeken();
-  }, []);
+    if(filterOpBeperkingen){
+      fetchOnderzoekenOpBeperkingen();
+    }else{ fetchOnderzoeken();}
+   
+  }, [filterOpBeperkingen]);
   let divheight = menuButtons.length * 10;
   let menudivheight = menuButtons.length * 10 + 10;
   document.getElementsByName("buttonMenu").height = divheight + "vh";
@@ -39,17 +43,77 @@ export default function Onderzoeken() {
     );
   });
 
+  const fetchOnderzoekenOpBeperkingen = async (e) => {
+    
+    fetch('https://localhost:7225/api/Onderzoek/GetOnderzoekenByUserEmail', {
+      method: 'GET',
+      headers: {
+        'Email': 'user4@gmail.com' 
+      }
+    })
+    .then(response => {
+      console.log(response);
+      return response.json();
+    })
+    .then(data => {
+      console.log(data.$values);
+
+        const newMenuButtons = data.$values.map((item, index) => ({
+      id: item.titel,
+      name: item.uitvoerendBedrijfNaam,
+      link: "/UserHome/Onderzoeken/Onderzoek",
+      titel: item.titel,
+      beschrijving: item.korteBeschrijving,
+      locatie: item.soortOnderzoek === "Enquete" ? "Online" : item.soortOnderzoek,
+      onderzoekid: item.onderzoekId,
+    }));
+
+    setMenuButtons(newMenuButtons);
+
+    });
+    
+
+//    const respone= await fetch('https://localhost:7225/api/Onderzoek/GetOnderzoekenByUserEmail', {
+//   method: 'GET',
+//   headers: {
+//     'Email': user.getEmail() // replace with the actual email
+//   }
+// })   
+    
+//     console.log(respone.$values);
+
+    
+    
+    // const response = await fetch(
+    //   "https://localhost:7225/api/Onderzoek/GetAllOnderzoeken"
+    // );
+
+    // const data = await response.json();
+    // const newMenuButtons = data.$values.map((item, index) => ({
+    //   id: item.titel,
+    //   name: item.uitvoerendBedrijfNaam,
+    //   link: "/UserHome/Onderzoeken/Onderzoek",
+    //   titel: item.titel,
+    //   beschrijving: item.korteBeschrijving,
+    //   locatie: item.soortOnderzoek === "Enquete" ? "Online" : item.soortOnderzoek,
+    //   onderzoekid: item.onderzoekId,
+    // }));
+
+    // setMenuButtons(newMenuButtons);
+  };
+
+
+
   const fetchOnderzoeken = async (e) => {
     const response = await fetch(
       "https://localhost:7225/api/Onderzoek/GetAllOnderzoeken"
     );
 
     const data = await response.json();
-
-    const newMenuButtons = data.map((item, index) => ({
+    const newMenuButtons = data.$values.map((item, index) => ({
       id: item.titel,
       name: item.uitvoerendBedrijfNaam,
-      link: "/UserHome/Onderzoek",
+      link: "/UserHome/Onderzoeken/Onderzoek",
       titel: item.titel,
       beschrijving: item.korteBeschrijving,
       locatie: item.soortOnderzoek === "Enquete" ? "Online" : item.soortOnderzoek,
@@ -70,6 +134,12 @@ export default function Onderzoeken() {
         <h1 id={styles.over_ons}>Onderzoeken</h1>
         <div id={styles.blokken}>
           <div id={styles.blok_1} name="blok_1">
+          <label onClick={()=>setFilterOpBeperking(!filterOpBeperkingen)} id={styles.text_filter}htmlFor="switch">Wilt u filteren op uw beperkingen?</label>
+<input id={styles.switch}  type="checkbox"
+aria-label="Filter op uw beperkingen checkbox"
+  checked={filterOpBeperkingen}
+  onChange={() => setFilterOpBeperking(!filterOpBeperkingen)}
+/>
             <input
               id={styles.searchbar}
               type="text"
