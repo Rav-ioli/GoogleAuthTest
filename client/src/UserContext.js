@@ -1,10 +1,12 @@
 import React, {createContext, useContext, useState} from "react";
 import Cookies from "js-cookie";
 import {jwtDecode }from "jwt-decode";
+import {useNavigate} from "react-router-dom";
 
 export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
+    const navigate = useNavigate();
     const [jwt, setJwt] = useState(Cookies.get("jwt"));
     async function Login(token) {
         Cookies.set("jwt", token);
@@ -14,6 +16,7 @@ export const UserProvider = ({children}) => {
     async function Logout() {
         Cookies.remove('jwt')
         setJwt(null)
+        navigate("/")
     }
 
     const getRoles = () => {

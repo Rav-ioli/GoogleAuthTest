@@ -17,12 +17,20 @@ import Onderzoeken from "./Pages/Onderzoeken";
 import GedetaileerdOnderzoek from "./Pages/GedetailleerdOnderzoek";
 import SetupChat from "./Pages/Chat/SetupChat";
 import Gegevens from "./Pages/Gegevens";
+import BedrijfsHome from './Pages/BedrijfsHome'
+import OnderzoekOpstellen from './Pages/OnderzoekOpstellen'
+import EigenOnderzoeken from './Pages/EigenOnderzoeken'
+import BeheerdersHome from './Pages/BeheerdersHome'
 
 function App() {
   return (
-    <UserProvider>
-      <Router>
+    
+      <Router><UserProvider>
         <Routes>
+          <Route path="/OnderzoekOpstellen" element={<OnderzoekOpstellen />} /> //todo: select bar and private route
+          <Route path="/EigenOnderzoeken" element={<EigenOnderzoeken />} /> //todo backend only bedrijf
+          <Route path="/BedrijfsHome" element={<BedrijfsHome />} />
+          <Route path="/BeheerdersHome" element={<BeheerdersHome />} />
           <Route
             path="/adminportal"
             element={
@@ -50,9 +58,9 @@ function App() {
           <Route path="/login" element={<GoogleLogin />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/UserHome" element={<UserHome />} />
-        </Routes>
+        </Routes>  </UserProvider>
       </Router>
-    </UserProvider>
+  
   );
 }
 

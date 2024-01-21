@@ -134,13 +134,28 @@ export default function Onderzoeken() {
         <h1 id={styles.over_ons}>Onderzoeken</h1>
         <div id={styles.blokken}>
           <div id={styles.blok_1} name="blok_1">
-          <label onClick={()=>setFilterOpBeperking(!filterOpBeperkingen)} id={styles.text_filter}htmlFor="switch">Wilt u filteren op uw beperkingen?</label>
-<input id={styles.switch}  type="checkbox"
-aria-label="Filter op uw beperkingen checkbox"
-  checked={filterOpBeperkingen}
-  onChange={() => setFilterOpBeperking(!filterOpBeperkingen)}
-/>
+            {user.getRoles().includes("Admin") ? (
+              <>
+               
+              </>
+            ) : (
+              <> <label
+              onClick={() => setFilterOpBeperking(!filterOpBeperkingen)}
+              id={styles.text_filter}
+              htmlFor="switch"
+            >
+              Wilt u filteren op uw beperkingen?
+            </label>
             <input
+              id={styles.switch}
+              type="checkbox"
+              aria-label="Filter op uw beperkingen checkbox"
+              checked={filterOpBeperkingen}
+              onChange={() => setFilterOpBeperking(!filterOpBeperkingen)}
+            /></>
+            )}
+           
+            <input aria-label='Zoekbar'
               id={styles.searchbar}
               type="text"
               placeholder="Search..."

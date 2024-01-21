@@ -47,14 +47,13 @@ const user = useUser();
   }, [changed]);
 
   const aantalDeelnames = countData?.find(
-    (onderzoek) => onderzoek.onderzoekID === Number(onderzoekId)
+    (onderzoek) => onderzoek.onderzoekId === Number(onderzoekId)
   );
+
 
  const fetchOnderzoeken = async () => {
     const response = await fetch("https://localhost:7225/api/Onderzoek/GetOnderzoekByID/" + onderzoekId);
-    console.log(response.status);
     const data = await response.json();
-    console.log(data);
     setBedrijfsNaam(data.uitvoerendBedrijfNaam)
     setOnderzoekTitel(data.titel)
     setVolleBeschrijving(data.korteBeschrijving)
@@ -62,6 +61,7 @@ const user = useUser();
     setBeloning(data.beloning)
     setLink("https://www.google.com/search?q="+data.titel)
  }
+
  const handleAanmelden = async (e) => {
   await fetch("https://localhost:7225/api/Onderzoek/JoinErvaringsdeskundigeToOnderzoek", {
     method: "POST",
@@ -114,9 +114,15 @@ const user = useUser();
                 ) : (
                   <p>unknown</p>
                 )}
-              <li id={styles.button} key={onderzoekId} name={"Button" + BedrijfsNaam} class={styles.navbar__item}></li>
+                  {user.getRoles().includes("Admin") ? (
+              <>
+               
+              </>
+            ) : (
+              <> <li id={styles.button} key={onderzoekId} name={"Button" + BedrijfsNaam} class={styles.navbar__item}></li>
               <button id={styles.register_button} onClick={()=>handleAanmelden()} target="_blank"
-  rel="noopener noreferrer"class={styles.register_button}>Aanmelden</button>
+  rel="noopener noreferrer"class={styles.register_button}>Aanmelden</button></>
+            )}
             </div>
           </div>
         </div>

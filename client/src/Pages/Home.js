@@ -22,7 +22,7 @@ export default function Home() {
       <ul id={styles.ul}>
         {userContext.getRoles().includes("Admin") ? (
           <li id={styles.li}>
-            <a href="/adminportal" id={styles.aaa}>
+            <a href="/BeheerdersHome" id={styles.aaa}>
               <Icon id={styles.icon} icon="ph:book-bold" />
               <br></br>
               Admin Portal
@@ -50,7 +50,7 @@ export default function Home() {
 }
         {userContext.getRoles().includes("Bedrijf") ? (
           <li id={styles.li}>
-            <a href="/bedrijfsportal" id={styles.aaa}>
+            <a href="/BedrijfsHome" id={styles.aaa}>
               <Icon id={styles.icon} icon="tabler:building" />
               <br></br>
               Bedrijfs Portal
