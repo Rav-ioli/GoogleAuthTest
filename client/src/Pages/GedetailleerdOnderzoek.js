@@ -20,14 +20,35 @@ const user = useUser();
   const [link,setLink] = useState('');
   const [beloning,setBeloning] = useState('€ 50,-');
   const [doelgroep,setDoelgroep] = useState('Gamers');
-
+  const [countData, setCountData] = useState(null);
+ const [changed, setChanged] = useState(0);
   // const onderzoekId = localStorage.getItem("onderzoekId");
   // const bedrijfsId = location.state.bedrijfsId;
   
-
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://localhost:7225/api/Onderzoek/GetCountAanmeldingForEachOnderzoek"
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data);
+      setCountData(data.$values); // Bewaar de gegevens in de state
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  };
   useEffect(() => {
     fetchOnderzoeken();
-  }, []);
+    fetchData();
+    
+  }, [changed]);
+
+  const aantalDeelnames = countData?.find(
+    (onderzoek) => onderzoek.onderzoekID === Number(onderzoekId)
+  );
 
  const fetchOnderzoeken = async () => {
     const response = await fetch("https://localhost:7225/api/Onderzoek/GetOnderzoekByID/" + onderzoekId);
@@ -40,34 +61,8 @@ const user = useUser();
     setLocatie(data.soortOnderzoek === "Enquete" ? "Online" : data.soortOnderzoek);
     setBeloning(data.beloning)
     setLink("https://www.google.com/search?q="+data.titel)
-
-
-
-
-    // const fetchOnderzoeken = async (e) => {
-    //   const response = await fetch(
-    //     "https://localhost:7225/api/Onderzoek/GetAllOnderzoeken"
-    //   );
-  
-    //   const data = await response.json();
-  
-    //   const newMenuButtons = data.map((item, index) => ({
-    //     id: item.onderzoekTitel,
-    //     name: item.uitvoerendBedrijfNaam,
-    //     link: "/UserHome/Onderzoek",
-    //     onderzoekTitel: item.onderzoekTitel,
-    //     beschrijving: item.korteBeschrijving,
-    //     locatie: item.locatie || "N/A",
-    //     onderzoekid: item.onderzoekId,
-    //   }));
-  
-    //   setMenuButtons(newMenuButtons);
-    // };
-
  }
  const handleAanmelden = async (e) => {
- 
-
   await fetch("https://localhost:7225/api/Onderzoek/JoinErvaringsdeskundigeToOnderzoek", {
     method: "POST",
     headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") },
@@ -82,10 +77,14 @@ const user = useUser();
       if (response.ok) {
         //  alert("voorstelling toegevoegd");
         alert("Aanmelding gelukt");
+        setChanged(changed + 1);
       } 
-      if (response.status === 500) {alert("U bent al aangemeld voor dit onderzoek")}
+      else if (response.status === 500) {alert("U bent al aangemeld voor dit onderzoek")}
       else {
           alert("Aanmelding mislukt");
+      // if (response.status === 500) {alert("U bent al aangemeld voor dit onderzoek")}
+      // else {
+      //     alert("Aanmelding mislukt");
       }
   }
  
@@ -110,10 +109,14 @@ const user = useUser();
             <div id={styles.blok_2}>
               <p id={styles.text4}>{volleBeschrijving}</p>
               <p id={styles.text5}>Doelgroep: {doelgroep}</p>
-              <li id={styles.menuButton} key={onderzoekId} name={"Button" + BedrijfsNaam} class={styles.navbar__item}>
-                <a id={styles.aanmelden} onClick={()=>handleAanmelden()} target="_blank"
-  rel="noopener noreferrer"class={styles.button}>Aanmelden</a>
-              </li>
+              {aantalDeelnames ? (
+                  <p id={styles.text4}>Aantal deelnemers: {aantalDeelnames.count}</p>
+                ) : (
+                  <p>unknown</p>
+                )}
+              <li id={styles.button} key={onderzoekId} name={"Button" + BedrijfsNaam} class={styles.navbar__item}></li>
+              <button id={styles.register_button} onClick={()=>handleAanmelden()} target="_blank"
+  rel="noopener noreferrer"class={styles.register_button}>Aanmelden</button>
             </div>
           </div>
         </div>

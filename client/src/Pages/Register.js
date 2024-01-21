@@ -60,7 +60,7 @@ export default function GoogleLogin() {
     );
     if (result.ok) {
       const data = await result.json();
-      setBeperkingenData(data);
+      setBeperkingenData(data.$values);
     } else {
       console.error(`Error: ${result.status}`);
     }
@@ -79,7 +79,7 @@ export default function GoogleLogin() {
     );
     if (result.ok) {
       const data = await result.json();
-      setHulpmiddelenData(data);
+      setHulpmiddelenData(data.$values);
     } else {
       console.error(`Error: ${result.status}`);
     }
