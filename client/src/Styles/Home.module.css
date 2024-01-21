@@ -11,13 +11,13 @@
 }
 
 #blok_1 {
-  background-color: #fffcbb;
+  background-color: #d6efeb;
   width: 90%;
   height: 60vh;
   margin: 5%;
   border-radius: 30px;
   border-style: solid;
-  border-color: #eeebb1;
+  border-color: #b0e3dc;
   border-width: 20px;
   list-style-type: none;
 }
@@ -94,13 +94,13 @@
 }
 
 #blok_2 {
-  background-color: #fffcbb;
+  background-color: #d6efeb;
   width: 90%;
   height: 60vh;
   margin: 5%;
   border-radius: 30px;
   border-style: solid;
-  border-color: #eeebb1;
+  border-color: #b0e3dc;
   border-width: 20px;
   list-style-type: none;
 }

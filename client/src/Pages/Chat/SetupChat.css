@@ -6,11 +6,16 @@
   font-family: "Open Sans", sans-serif;
   display: grid;
   place-items: center;
+
 }
+
 body {
   margin: 0%;
   padding: 0%;
 }
+
+
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 
 .joinChatContainer {
@@ -44,6 +49,7 @@ body {
   background: #2aa2d1;
   color: #fff;
   cursor: pointer;
+
 }
 
 .joinChatContainer button:hover {
@@ -51,8 +57,11 @@ body {
 }
 
 .chat-window {
-  width: 300px;
-  height: 420px;
+  width: 100vw;
+  max-height: 100vh;
+  overflow-y: auto;
+
+  
 }
 
 .chat-window p {
@@ -64,6 +73,7 @@ body {
   background: #263238;
   position: relative;
   cursor: pointer;
+  
 }
 .chat-window .chat-header p {
   display: block;
@@ -71,11 +81,13 @@ body {
   color: #fff;
   font-weight: 700;
   line-height: 45px;
+  
 }
 
+
 .chat-window .chat-body {
-  height: calc(450px - (45px + 70px));
   border: 1px solid #263238;
+
   background: #fff;
 
   position: relative;
@@ -85,22 +97,29 @@ body {
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+
+  
 }
 
 .chat-window .chat-body .message-container::-webkit-scrollbar {
   display: none;
+
+
+  
 }
 .chat-window .chat-body .message {
   height: auto;
-  padding: 10px;
+  padding: 5px;
   display: flex;
+  
 }
 
 .chat-window .chat-body .message .message-content {
   width: auto;
   height: auto;
-  min-height: 40px;
+  min-height: 30px;
   max-width: 120px;
+  min-width: 5px;
   background-color: #43a047;
   border-radius: 5px;
   color: white;
@@ -112,37 +131,46 @@ body {
   padding-left: 5px;
   overflow-wrap: break-word;
   word-break: break-word;
+  
+}
+
+.time {
+  margin-left: auto;
+  padding-left: 1vh;
+  padding-right: 1vh;
+
 }
 
 #you {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 #you .message-content {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 #you .message-meta {
-  justify-content: flex-start;
-  margin-left: 5px;
+  justify-content: flex-end;
+  margin-left: 1vh;
 }
 
 #other {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 #other .message-content {
-  justify-content: flex-end;
+  justify-content: flex-start;
   background-color: cornflowerblue;
+  
 }
 
 #other .message-meta {
-  justify-content: flex-end;
-  margin-right: 5px;
+  justify-content: flex-start;
+  margin-right: 1px;
 }
 
 .message-meta #author {
-  margin-left: 10px;
+  margin-left: auto;
   font-weight: bold;
 }
 
@@ -156,6 +184,7 @@ body {
   border: 1px solid #263238;
   border-top: none;
   display: flex;
+  
 }
 
 .chat-window .chat-footer input {
