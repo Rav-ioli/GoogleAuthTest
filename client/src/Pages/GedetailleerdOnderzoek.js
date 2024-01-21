@@ -38,9 +38,9 @@ export default function GedetailleerdOnderzoek() {
             <div id={styles.blok_2}>
               <p id={styles.text4}>Volle beschrijving: {volle_beschrijving}</p>
               <p id={styles.text5}>Doelgroep: {doelgroep}</p>
-              <li id={styles.menuButton} key={id} name={"Button" + naam} class={styles.navbar__item}>
-              <a aria-label="Aanmelden bij onderzoek" id={styles.aanmelden} href={link} class={styles.button}>Aanmelden</a>
-              </li>
+              <li id={styles.button}  class={styles.navbar__item}></li>
+              <button aria-label="Aanmelden bij onderzoek" id={styles.register_button}  target="_blank"
+  rel="noopener noreferrer"class={styles.register_button}>Aanmelden</button>
             </div>
           </div>
         </div>

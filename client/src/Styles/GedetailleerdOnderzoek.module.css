@@ -121,3 +121,21 @@
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
+#register_button {
+    width: 18.5%;
+    height: 7vh;
+    border-radius: 15px;
+    border-width: 4px;
+    background-color: #B1FAFF;
+    border-color: #A3E8ED;
+    font-size: 150%;
+    margin-left: 40.75%;
+}
+
+#register_button:hover {
+    background-color: #8bdee2;
+}
+
+#register_button:active {
+    background-color: #50bec4;
+}
