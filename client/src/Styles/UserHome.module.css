@@ -15,12 +15,12 @@
 }
 
 #blok_1 {
-    background-color: #FFFCBB;
+    background-color: #d6efeb;
     width: 43%;
     margin-left: 5%;
     border-radius: 30px;
     border-style: solid;
-    border-color: #EEEBB1;
+    border-color: #b0e3dc;
     border-width: 20px;
     list-style-type: none;
     display: inline-block;
@@ -77,14 +77,14 @@
 }
 
 #blok_2 {
-    background-color: #FFFCBB;
+    background-color: #d6efeb;
     width: 43%;
     margin-left: 52%;
     margin-top: -38.5%;
     margin-bottom: 60vh;
     border-radius: 30px;
     border-style: solid;
-    border-color: #EEEBB1;
+    border-color: #b0e3dc;
     border-width: 20px;
 }
 
