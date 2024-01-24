@@ -39,8 +39,8 @@ const navigate = useNavigate();
     },
     {
       id: 'ChatsButton',
-      name: 'Chats',
-      link: '/Chats',
+      name: 'Chat',
+      link: '/Chat',
     },
     {
       id: 'LogoutButton',

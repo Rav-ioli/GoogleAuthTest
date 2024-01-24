@@ -40,12 +40,12 @@ export default function BedrijfsHome() {
     {
       id: 'OnderzoekenButton',
       name: 'Uw Actieve Onderzoeken',
-      link: '/EigenOnderzoeken'
+      link: '/BedrijfsHome/EigenOnderzoeken'
     },
     {
       id: 'ChatsButton',
       name: 'Uw Chats',
-      link: '/Chats',
+      link: '/Chat',
     },
     {
       id: 'GegevensButton',

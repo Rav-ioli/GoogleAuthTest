@@ -56,9 +56,9 @@ export default function Onderzoeken() {
       return response.json();
     })
     .then(data => {
-      console.log(data.$values);
+      
 
-        const newMenuButtons = data.$values.map((item, index) => ({
+        const newMenuButtons = data.map((item, index) => ({
       id: item.titel,
       name: item.uitvoerendBedrijfNaam,
       link: "/UserHome/Onderzoeken/Onderzoek",
@@ -110,7 +110,7 @@ export default function Onderzoeken() {
     );
 
     const data = await response.json();
-    const newMenuButtons = data.$values.map((item, index) => ({
+    const newMenuButtons = data.map((item, index) => ({
       id: item.titel,
       name: item.uitvoerendBedrijfNaam,
       link: "/UserHome/Onderzoeken/Onderzoek",

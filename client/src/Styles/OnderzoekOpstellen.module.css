@@ -119,6 +119,7 @@
     border-radius: 45px;
     font-size: 4vh;
     padding-left: 3.5%;
+    resize: none;
 }
 
 #email_text {
@@ -191,13 +192,17 @@
 }
 
 #beperking_input {
-    width: 80%;
+    background: none;
+    /* width: 80%;
+    height: 90%; */
+    width: 100%;
     height: 90%;
-    margin-left: 15%;
+    /* margin-left: 15%; */
     display: flex;
     /* margin-top: -30.5px; */
     margin-top: 0.5%;
-    border-radius: 5px;
+    border-radius: 30px;
+
 }
 
 #ingevoerdeBeperkingen {
@@ -320,7 +325,7 @@
 
 #checkboxTitle {
     text-align: center;
-    margin-top: 10vh;
+    margin-top: 5vh;
     font-size: 200%;
     font-family: myFirstFont;
 }
@@ -474,5 +479,8 @@
   }
   
   .dropdown a:hover {background-color: #ddd;}
-  
+  #warning_no_input{
+    color: red;
+    margin-left: 35.75%;   
+}
   .show {display: block;}

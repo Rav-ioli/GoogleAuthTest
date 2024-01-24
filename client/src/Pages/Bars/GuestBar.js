@@ -39,9 +39,7 @@ export default function GuestBar() {
                     <a href="/Register" class={styles.button}>Registreren</a>
                 </li>
                 
-                <li class={styles.navbar__item}>
-                    <a onClick={()=> logout()} class={styles.button}>Uitloggen</a>
-                </li>
+                
             </ul>
         </div>
     </nav>

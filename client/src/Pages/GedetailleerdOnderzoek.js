@@ -19,7 +19,7 @@ const user = useUser();
   const [locatie,setLocatie] = useState('Tokyo, Japan');
   const [link,setLink] = useState('');
   const [beloning,setBeloning] = useState('€ 50,-');
-  const [doelgroep,setDoelgroep] = useState('Gamers');
+  const [doelgroep,setDoelgroep] = useState('Onbekend');
   const [countData, setCountData] = useState(null);
  const [changed, setChanged] = useState(0);
   // const onderzoekId = localStorage.getItem("onderzoekId");
@@ -35,7 +35,7 @@ const user = useUser();
       }
       const data = await response.json();
       console.log(data);
-      setCountData(data.$values); // Bewaar de gegevens in de state
+      setCountData(data); // Bewaar de gegevens in de state
     } catch (error) {
       console.error("Fetch error:", error);
     }

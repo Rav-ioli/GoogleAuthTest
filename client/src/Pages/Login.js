@@ -278,7 +278,8 @@ fetch('https://localhost:7225/api/User/Validate', { // replace with your server'
                                 <label className="labelInput">datum voorstelling</label>
                                 <label className="verplicht2">*</label>
                                 <input type="text" id="voorstellingDatum" onChange={(e) => setDatumTijd(e.target.value)} name="datum" className="form-control" placeholder="dd-mm-jjjj" />
-                                <div className="background-warning">{error && datumTijd.length <= 0 ? <label className="warning-no-input">datum/tijd mag niet leeg zijn</label> : ""}</div>
+                                <div className="background-warning">
+                                    {error && datumTijd.length <= 0 ? <label className="warning-no-input">datum/tijd mag niet leeg zijn</label> : ""}</div>
                                 <label className="labelInput">tijd</label>
                                 <label className="verplicht2">*</label>
                                 <input type="text" id="voorstellingTijd" onChange={(e) => setTijdsduur(e.target.value)} name="tijd" className="form-control" placeholder="uu:mm" />

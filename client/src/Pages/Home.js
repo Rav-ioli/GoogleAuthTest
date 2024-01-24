@@ -18,7 +18,7 @@ export default function Home() {
         src="/Images/wachtkamer_plant.png"
         alt="Wachtkamer Achtergrond"
       />
-      
+
       <ul id={styles.ul}>
         {userContext.getRoles().includes("Admin") ? (
           <li id={styles.li}>
@@ -32,28 +32,32 @@ export default function Home() {
           <></>
         )}
         {userContext.getRoles().includes("Ervaringsdeskundige") ? (
-        <li id={styles.li}>
-          <a href="/userhome" id={styles.aaa}>
-            <Icon id={styles.icon} icon="ph:user-bold" />
-            <br></br>
-            Ervaringsdeskundige Portal
-          </a>
-        </li>):(
-           <li id={styles.li}>
-           <a href="/login" id={styles.aaa}>
-             <Icon id={styles.icon} icon="material-symbols:login" />
-             <br></br>
-             U krijgt toegang tot de portals als u inlogt
-           </a>
-         </li>
-        )
-}
+          <li id={styles.li}>
+            <a href="/userhome" id={styles.aaa}>
+              <Icon id={styles.icon} icon="ph:user-bold" />
+              <br></br>
+              Ervaringsdeskundige Portal
+            </a>
+          </li>
+        ) : (
+          <></>
+        )}
         {userContext.getRoles().includes("Bedrijf") ? (
           <li id={styles.li}>
             <a href="/BedrijfsHome" id={styles.aaa}>
               <Icon id={styles.icon} icon="tabler:building" />
               <br></br>
               Bedrijfs Portal
+            </a>
+          </li>
+        ) : (
+          <></>
+        )}
+        {userContext.getRoles().length === 0 ? (
+          <li id={styles.li}>
+            <a href="/login" id={styles.aaa}>
+              <Icon id={styles.icon} icon="material-symbols:login" />
+              <br></br>U krijgt toegang tot de portals als u inlogt
             </a>
           </li>
         ) : (

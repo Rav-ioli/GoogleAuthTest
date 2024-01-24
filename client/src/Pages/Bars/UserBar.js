@@ -1,7 +1,13 @@
 import React from 'react';
 import styles from '../../Styles/UserBar.module.css'
+import { useUser } from "../../UserContext";
 
 export default function UserBar() {
+    const userContext = useUser();
+    function logout() {
+        userContext.Logout();
+        alert("U bent uitgelogd");
+      }
   return (
     <nav class={styles.navbar}>
         <div class={styles.navbar__container}>
@@ -19,10 +25,7 @@ export default function UserBar() {
                     <a href="/" class={styles.navbar__links} id={styles.Darkmode}>Darkmode</a>
                 </li>
                 <li class={styles.navbar__item}>
-                    <a href="/Googlelogin" class={styles.button}>Login</a>
-                </li>
-                <li class={styles.navbar__item}>
-                    <a href="/Register" class={styles.button}>Sign Up</a>
+                    <a onClick={()=> logout()} class={styles.button}>Uitloggen</a>
                 </li>
             </ul>
         </div>
