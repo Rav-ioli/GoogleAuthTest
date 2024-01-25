@@ -7,6 +7,35 @@
   pointer-events: none;
 }
 
+:root {
+  background-color: white; 
+
+}
+
+[data-theme="dark"] {
+  --body_background :#282c34;
+  --body_color: white;
+  --link_color: cyan;
+}
+
+.dark-mode {
+  background :#1e1e1e;
+  color: rgb(134, 134, 134);
+  -webkit-text-stroke: 0px darkgray;
+
+}
+
+
+
+
+
+.light-mode {
+  background-color: #fff; /* Light background */
+  color: #000; /* Dark text */
+  
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -14,19 +43,20 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--body_background);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--body_color);
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--link_color);
 }
+
 
 @keyframes App-logo-spin {
   from {

@@ -18,8 +18,11 @@ import GedetaileerdOnderzoek from "./Pages/GedetailleerdOnderzoek";
 import SetupChat from "./Pages/Chat/SetupChat";
 import Gegevens from "./Pages/Gegevens";
 
+
 function App() {
+  
   return (
+    
     <UserProvider>
       <Router>
         <Routes>
@@ -53,7 +56,9 @@ function App() {
         </Routes>
       </Router>
     </UserProvider>
+    
   );
+  
 }
 
 export default App;

@@ -1,0 +1,44 @@
+body.DarkMode {
+    background-color: #111;
+    color: #fff;
+}
+
+#navbar__logo {
+    background-color: #333;
+    /* Add other styles as needed */
+}
+
+.navbar {
+    background: #222;
+    /* Add other styles as needed */
+}
+
+.navbar__button,
+.button,
+#Darkmode,
+#Lettergrotte {
+    background: #444;
+    color: #fff;
+    border: 1px solid #333;
+    /* Add other styles as needed */
+}
+
+.navbar__button:hover,
+.button:hover,
+#Darkmode:hover,
+#Lettergrotte:hover {
+    background: #666;
+    /* Add other styles as needed */
+}
+
+#blok_1,
+#blok_2 {
+    background-color: #333;
+    border-color: #555;
+    /* Add other styles as needed */
+}
+
+#over_ons,
+#voor_bedrijven {
+    color: #ffcc00; /* Yellow text for headings */
+}

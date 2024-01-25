@@ -6,6 +6,11 @@
     
 }
 
+.DarkMode {
+    background-color: #111;
+    color: #fff;
+  }
+
 .navbar {
     background: #d6efeb;
     height: 80px;
@@ -93,6 +98,7 @@
     background: #ffffff;
     color: #000000;
     border: 1px solid black; /* Added black stroke */
+    font-size: 18px;
     }
 
 #Darkmode {
@@ -109,6 +115,8 @@
     background: #ffffff;
     color: #000000;
     border: 1px solid black; /* Added black stroke */
+    font-size: 18px;
+    
     }
 
 
@@ -123,6 +131,7 @@ border: 1px solid black; /* Added black stroke */
 
 .navbar__button {
     align-self: center;
+    
     
 }
 
@@ -140,6 +149,7 @@ border: 1px solid black; /* Added black stroke */
     background: #73e2d5;
     color: #000000;
     border: 1px solid black; /* Added black stroke */
+    font-size: 18px;
 }
 
 .button:hover {

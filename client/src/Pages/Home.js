@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../Styles/Home.module.css";
+import "../App.css";
 import GuestBar from "./Bars/GuestBar";
 import ContactGegevens from "./Bars/ContactGegevensBar";
 import { useUser } from "../UserContext";
@@ -7,12 +8,14 @@ import { useUser } from "../UserContext";
 import { Icon } from "@iconify/react";
 import { Nav, Navvbar } from "react-bootstrap";
 
+
 export default function Home() {
   const userContext = useUser();
-
+  
   return (
     <div>
       <GuestBar></GuestBar>
+      
       <img
         id={styles.wachtkamer_img}
         src="/Images/wachtkamer_plant.png"
